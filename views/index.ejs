@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mongo file uploads</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        img{
+            width: 100%;
+        }
+        .dd{
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="card card-body mb-3 ">
+            <!-- <a href="/login">login</a>
+            <a href="/register">register</a> -->
+            <a href="/logout">logout</a>
+            </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 m-auto">
+                <h1 class="text-center display-4 my-4">Mongo file uploads</h1>
+                <form action="/upload" method="POST" enctype="multipart/form-data">
+                    <div class="custom-file mb-3">
+                        <input type="file" name="file" id="file" class="custom-file-input">
+                        <label for="file" class="custom-file-label">Choose File</label>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="name" placeholder="name">
+                   </div>
+                        <input type="submit" value="submit" class="btn btn-primary btn-block">
+                </form>
+                 <hr>
+            <div class="dd">  
+                 <% if(files){ %>
+                    <% files.forEach(function(file){ %>
+                        <div class="card card-body mb-3 ">
+                            
+                            <% if(file.isImage) { %>
+                                
+                                <img src="/images/<%=file.filename%>" alt="">
+                           <% } else {    %>
+                            <%=file.filename%>
+                           <% } %>
+                          
+                           <form action="/files/<%= file._id %>?_method=DELETE" method="POST" >
+                               <button class="btn btn-danger btn-block mt-4">Delete</button>
+                           </form>
+                    
+                        </div>
+                   <%  }) %>
+                </div>          
+                 <% } else { %>
+                    <p>no fiels to show</p>
+                 <% } %> 
+            </div>
+        </div>
+    </div>
+   
+    <script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+			  crossorigin="anonymous"></script>
+</body>
+</html>
