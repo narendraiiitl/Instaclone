@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
-var dataschema = new mongoose.Schema({
-    name:   {
+var postschema = new mongoose.Schema({
+    image:String,
+    tag:String,
+    content:   {
         type: String,
         required: "Name can not be blank"
     },
@@ -8,8 +10,11 @@ var dataschema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    image:String
-
+    likes: [ String ],
+    comments: [{
+        user : String,
+        comment : String
+    }]
 });
-var data = mongoose.model("data",dataschema);
-module.exports = data;
+var post = mongoose.model("post",postschema);
+module.exports = post;

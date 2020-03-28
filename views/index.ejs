@@ -3,70 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mongo file uploads</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <style>
-        img{
-            width: 100%;
-        }
-        .dd{
-            display: flex;
-            flex-direction: column-reverse;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/index.css" >
+     <script
+			  src="https://code.jquery.com/jquery-3.4.1.slim.js"
+			  integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+			  crossorigin="anonymous"></script>  
+    <title>Document</title>
+    <script src="./js/js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<script src="/dist/semantic.min.js"></script>
 </head>
 <body>
-    <nav>
-        <div class="card card-body mb-3 ">
-            <!-- <a href="/login">login</a>
-            <a href="/register">register</a> -->
-            <a href="/logout">logout</a>
-            </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 m-auto">
-                <h1 class="text-center display-4 my-4">Mongo file uploads</h1>
-                <form action="/upload" method="POST" enctype="multipart/form-data">
-                    <div class="custom-file mb-3">
-                        <input type="file" name="file" id="file" class="custom-file-input">
-                        <label for="file" class="custom-file-label">Choose File</label>
-                    </div>
-                    <div class="form-group">
-                        <input class="form-control" type="text" name="name" placeholder="name">
-                   </div>
-                        <input type="submit" value="submit" class="btn btn-primary btn-block">
-                </form>
-                 <hr>
-            <div class="dd">  
-                 <% if(files){ %>
-                    <% files.forEach(function(file){ %>
-                        <div class="card card-body mb-3 ">
-                            
-                            <% if(file.isImage) { %>
-                                
-                                <img src="/images/<%=file.filename%>" alt="">
-                           <% } else {    %>
-                            <%=file.filename%>
-                           <% } %>
-                          
-                           <form action="/files/<%= file._id %>?_method=DELETE" method="POST" >
-                               <button class="btn btn-danger btn-block mt-4">Delete</button>
-                           </form>
-                    
-                        </div>
-                   <%  }) %>
-                </div>          
-                 <% } else { %>
-                    <p>no fiels to show</p>
-                 <% } %> 
-            </div>
-        </div>
+<nav>
+  <div class="ui inverted segment">
+<div class="ui secondary pointing inverted menu">
+  <div class="item">
+    <img class="ui mini image" src="/assets/one.svg">&nbsp;Timepass
+  </div>
+  <a class="item" href="/">
+    Home
+  </a>
+  <a class="active item" href="/upload">
+    Upload
+  </a>
+  <a class="item">
+    Covid-19 Updates
+  </a>
+        <a class="item " href="/logout">
+          logout   
+        </a>
+  
+  </div>
+</div>
+</nav>
+<div class="ui inverted segment" >
+<section style="margin-top:3vh; display:flex;  justify-content: center;" >
+<div class="ui segment ">
+  <form action="/upload" method="POST" enctype="multipart/form-data">
+    <div class="seven wide column">
+       <div class="custom-file mb-3">
+        <input type="file" name="file" id="file" class="custom-file-input">
+        <label for="file" class="custom-file-label">Choose File</label>
+       </div>
+       <div class="ui right labeled fluid left icon input">
+        <i class="tags icon"></i>
+        <input type="text" name="tag" placeholder="Enter #tag">
+        <a class="ui tag label">
+          HashTag
+        </a>
+      </div>
+      <br>
+          <div class="md-form mb-4 pink-textarea active-pink-textarea-2">
+             <i class="fas fa-angle-double-right prefix"></i>
+             <textarea id="form23" class="md-textarea form-control" name="name" placeholder="Write Something..." rows="3"></textarea>
+             <label for="form23"</label>
+          </div>
+          
+          <button class="ui blue fluid button">Submit</button>
     </div>
-   
-    <script
-			  src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-			  integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-			  crossorigin="anonymous"></script>
+  <!-- </div> -->
+  </form>
+</div>
+</section>
+</div>
+
+  <footer>
+    <div class="cover">
+    <div class="one1">
+        <ul>
+            <li><b>
+                <span></span>About</b></li>
+            <li>Home
+               
+            </li>
+            <li>About Us</li> 
+            <li>SHare Happyness</li> 
+            <li>Product Comparison</li> 
+  
+        </ul>
+    </div>
+    <div class="one1">
+        <ul>
+            <li><b>
+                <span></span> Contact Us
+            </b></li>
+            <li>  Skype: NULL
+            </li>
+            <li>  Phone: +91 000000000</li> 
+            <li> Cordinator </li> 
+            <li>Noone: +91 00000005</li> 
+          
+          
+        </ul>
+    </div>   <div class="one1">
+        <ul>
+            <li><b>
+                <span></span>Latest from our blog
+            </b></li>
+            <li>  Webcam Business Idea in UK?
+            </li>
+            <li> Infographic: USA the BornLand</li>  
+            <li> Online Stock Business</li> 
+            <li>Access Websites</li>
+        
+        </ul>
+    </div>   <div class="one1">
+        <ul>
+            <li><b>
+                <span></span>Located at</b></li>
+                <li>   Room No.109,
+                </li>
+                <li>  Chak Gajeria, Ahmamau</li> 
+                <li>Lucknow</li>
+                <li>Phone: +91 0000005</li> 
+                
+        </ul>
+    </div>
+     </div>
+</footer>
+
 </body>
 </html>

@@ -12,10 +12,10 @@
         <div class="h2">We've e-mailed you a 6 digit-code.Please Check your e-mail and enter the code here to complete the varification.</div>
         <form action="/otp" method="POST" class="h3">
             <input type="text" name="yourotp">
-            <input type = "hidden" name = "username" value = " <%= data.username %>" />
-            <input type = "hidden" name = "email" value = "<%= data.email %>" />
-            <input type = "hidden" name = "password" value = "<%= data.password %>" />
-            <input type = "hidden" name = "otp" value = "<%= data.otp %>" />
+            <input type = "hidden" name = "username" value = " <%= files.data.username %>" />
+            <input type = "hidden" name = "email" value = "<%= files.data.email %>" />
+            <input type = "hidden" name = "password" value = "<%= files.data.password %>" />
+            <input type = "hidden" name = "otp" value = "<%= files.data.otp %>" />
             <button>Verify</button>
         </form>
         <div class="h4">
