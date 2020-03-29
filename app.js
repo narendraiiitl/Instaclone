@@ -17,6 +17,7 @@ var methodoverride = require('method-override');
 var bodyparser = require('body-parser');
 var one = require('./routes/one');
 var mw = require('./middleware/middle');
+var userroutes= require('./routes/one')
 app.set("view engine", "ejs");
 app.use(methodoverride('_method'));
 app.use(express.static(__dirname + '/public'));
@@ -25,6 +26,7 @@ app.use(express.static(__dirname + '/semantic'));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 // app.use('/api/one',one);
+app.use('/api/users',userroutes);
 var User = require('./models/user');
 const mongoURI = 'mongodb://localhost/upload';
 const conn = mongoose.createConnection(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -143,11 +145,11 @@ app.get("/logout", function (req, res) {
   res.redirect("/")
 });
 
-app.get("/upload",function(req,res){
-  res.render('index')
+app.get("/upload",isLoggedIn,function(req,res){
+  res.render('index');
 });
 
-app.get("/images/", (req, res) => {
+app.get("/images/",(req, res) => {
   gfs.files.find().toArray((err, files) => {
     if (!files || files.length === 0) {
       return res.status(404).json({
@@ -159,26 +161,23 @@ app.get("/images/", (req, res) => {
 
         if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
           file.isImage = true;
-          file.data= 'not available';
-          
         }
         else {
           file.isImage = false;
-          file.data= 'not available';
         }
       });
-      res.render('landing', { files: files })
+      res.render('landing')
     }
   });
 });
 
 app.get("/images/:filename", (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+    
     if (!file || file.length === 0) {
-      res.render('index', { files: false });
+      res.send("no files to show");
     }
-
-    if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
+   else if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
       const readstream = gfs.createReadStream(file.filename);
       readstream.pipe(res);
     }
@@ -191,7 +190,7 @@ app.get("/images/:filename", (req, res) => {
 });
 
 app.get("/", function (req, res) {
-  res.redirect('/images/');
+  res.render('landing');
 });
 
 app.get("/empty", isLoggedIn, function (req, res) {
@@ -219,7 +218,7 @@ app.get("/empty", isLoggedIn, function (req, res) {
 //   });
 // });
 
-app.get("/files/:filename", isLoggedIn, (req, res) => {
+app.get("/files/:filename", (req, res) => {
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     if (!file || file.length === 0) {
       return res.status(404).json({
@@ -229,6 +228,10 @@ app.get("/files/:filename", isLoggedIn, (req, res) => {
     return res.json(file);
   });
 });
+
+app.get("/api/:user",function(req,res){
+  res.json(req.user);
+})
 
 ///////////////get request////////////////////
 
@@ -254,8 +257,8 @@ app.post("/otp", function (req, res) {
       }
       passport.authenticate("local")(req, res, function () {
         var data = { user: req.user.username };
-        var files= { data :data}
-        res.render('landing', { files: files });
+        var files= [{ data :data}];
+        res.render('landing');
       })
     });
   }
@@ -267,7 +270,6 @@ app.post("/otp", function (req, res) {
 
 app.post("/login", passport.authenticate("local"), function (req, res) {
   var data = { user: req.user.username };
-  console.log(data);
   var files = [{data:data}];
   res.render("landing", { files: files });
 });
@@ -286,7 +288,6 @@ app.post("/upload", uplaod.single('file'), isLoggedIn, function (req, res) {
       console.log(err);
     }
     else {
-      console.log(images);
       User.findOneAndUpdate(
         { username: req.user.username }, 
         { $push: { posts: images } },

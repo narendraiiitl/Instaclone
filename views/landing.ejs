@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/index.css">
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
-    integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
-  <title>Document</title>
-  <script src="./js/js.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
-  <script src="/dist/semantic.min.js"></script>
-</head>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+      integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script src="/js/js.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+   
+    <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
+    <link rel="stylesheet" type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="/dist/semantic.min.js"></script>
+  </head>
 <body>
   <nav>
     <div class="ui inverted segment">
-      <div class="ui secondary pointing inverted menu">
+      <div class="ui secondary pointing inverted menu" id="menu">
         <div class="item">
           <img class="ui mini image" src="/assets/one.svg">&nbsp;&nbsp;Timepass
         </div>
@@ -26,83 +30,21 @@
         <a class="item" href="/upload">
           Upload
         </a>
-        <a class="item">
+        <a class="item ">
           Covid-19 Updates
         </a>
-        <%  if(!files.data ){    %>
-        <div class="right menu">
-          <a class="ui item" href="/login">
-            <div class="ui primary button">Login/signup</div>
-          </a>
-          <%  }  else{  %>
-          <a class="item " href="/logout">
-            logout
-          </a>
-          <div class="menu right"></div>
-          <a class="ui item" href="#" <div class="ui item">
-            <img class="ui avatar image" src="/assets/pp.png">
-            <%=   files.data %>
-        </div>
       </div>
-      </a>
-      <%  }   %>
-    </div>
     </div>
   </nav>
-  <div class="ui inverted segment">
-    <div class="ui four stackable cards">
-      <% if(files){ %>
-      <% files.forEach(function(file){ %>
-      <div class="ui fluid card">
-        <div class="content">
-          <div class="right floated meta">14h</div>
-          <img class="ui avatar image" src="/assets/pp.png"> Subbu
-        </div>
-        <% if(file.isImage) { %>
-        <div class="image">
-          <img src="/images/<%=file.filename%>">
-        </div>
-        <% } else {    %>
-        <%=file.filename%>
-        <% } %>
-        <div class="content">
-          <span class="right floated">
-            <i class="heart outline like icon"></i>
-            17 likes
-          </span>
-          <i class="comment icon"></i>
-          3 comments
-        </div>
-        <div class="extra content">
-          <div class="ui large transparent left icon input">
-            <i class="heart outline icon"></i>
-            <input type="text" placeholder="Add Comment...">
-          </div>
-        </div>
+  <div class="ui inverted segment" >
+    <div class="ui four stackable cards" id="segment">
       </div>
-      <!-- <div class="content">
-                  <span class="right floated">
-                    <i class="heart outline like icon"></i>
-                    17 likes
-                  </span>
-                  <i class="comment icon"></i>
-                  3 comments
-                </div>
-                <div class="extra content">
-                  <div class="ui large transparent left icon input">
-                    <i class="heart outline icon"></i>
-                    <input type="text" placeholder="Add Comment...">
-                  </div>
-                </div> -->
-      <!-- <form action="/files/<%= file._id %>?_method=DELETE" method="POST" >
-                  <button class="btn btn-danger btn-block mt-4">Delete</button>
-              </form> -->
-      <%  }) %>
-      <% } else { %>
-      <p>no fiels to show</p>
-      <% } %>
-    </div>
+
+
   </div>
+
+
+
   <footer>
     <div class="cover">
       <div class="one1">
@@ -155,4 +97,5 @@
     </div>
   </footer>
 </body>
+
 </html>
