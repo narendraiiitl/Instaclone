@@ -40,7 +40,7 @@ var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'lcs2019015@iiitl.ac.in',
-    pass: 'test1234'
+    pass: 'Narendra@03'
   }
 });
 
@@ -271,10 +271,12 @@ app.post("/upload", uplaod.single('file'), isLoggedIn, function (req, res) {
   var content = req.body.name;
   var tag = req.body.tag;
   var img = req.file.filename;
+  var user = req.user.username;
   var newpost = {
     image: img,
     content: content,
-    tag: tag
+    tag: tag,
+    user:user
   };
   postdetails.data.create(newpost, function (err, images) {
     if (err) {

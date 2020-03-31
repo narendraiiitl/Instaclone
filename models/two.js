@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var user = require('./user');
 var postschema = new mongoose.Schema({
     image:String,
     tag:String,
@@ -10,6 +11,7 @@ var postschema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    user:String,
     likes: [ String ],
     comments: [{
         user : String,

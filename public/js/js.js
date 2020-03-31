@@ -44,8 +44,6 @@ $(document).ready(function () {
       $('#menu').append(l);
     })
   function showuser(user) {
-    // var newuser = $('<a href="/logout" class="ui animated item right fade button" tabindex="0"><div class="visible content">'  + user.username + '</div><div class="hidden content"> Logout </div></a>')
-    // newuser.data('id', user._id);
     var newuser= $('<a class="item " href="/logout">' + user.username + '</a>');
     var logout= $( '<a class="right item"  href="/logout"> <div class="ui primary button">Logout</div></a>' );
     console.log(newuser);
@@ -58,20 +56,55 @@ $(document).ready(function () {
 $.getJSON("/api/users/posts")
     .then(showposts)
     .catch(function(err){
+      console.log(err)
     })
-
     function showposts(user) {
-    user.forEach(element => {
-      var data= $('<div class="ui card"><div class="content"> <div class="right floated meta">' + 'online' +'</div> <img class="ui avatar image" src="https://semantic-ui.com/images/avatar2/large/elyse.png"> Elliot</div> <div class="image"><img src="/images/'  + element.image + '"></div><div class="content"> <span class="right floated"> <i class="heart outline like icon"></i>  17 likes </span> <i class="comment icon"></i>' + ' 3 comments ' + '</div><div class="extra content"><div class="ui large transparent left icon input">   <i class="heart outline icon"></i>  <input type="text" placeholder="Add Comment..."> </div></div></div>' );
+    user.forEach(element =>{
+      var data= $('<div class="ui card"><div class="content" id="card" > <div class="right floated meta">' + element.created +'</div> <img class="ui avatar image" src="https://semantic-ui.com/images/avatar2/large/elyse.png">'+element.user +'</div> <div class="image"><img src="/images/'  + element.image + '"></div><div class="content" id="card"> <span class="right floated"> <i class="heart outline like icon" id="like"></i>' + element.likes.length +' likes </span> <i class="comment icon"></i>' +  element.comments.length + ' comments ' + '</div><div class="extra content"><div class="ui large transparent left icon input">   <i class="heart outline icon"></i>  <input type="text" placeholder="Add Comment..."> </div></div></div>' );
+       data.data('liked',element._id);
       $('#segment').append(data);
-      console.log(element.image);
-    });
-  }    
+             })  
+            }
+});
 
 
 
 
-  // (function(data){
+
+//  function addtodo(todo){
+//   var newtodo = $('<li class="task ">' + todo.name +  '<span>X</span></li>')
+//   newtodo.data('id',todo._id);
+//   newtodo.data('completed',todo.completed);
+//   $('.list').append(newtodo);
+//   if(todo.completed)
+//   newtodo.addClass("done");
+// }
+
+// $('.list').on('click','span',function(e){
+//   e.stopPropagation();
+//   removetodo($(this).parent());  
+// })
+// function updatetodo(todo){
+//   var clickedid = todo.data('id');
+//   var updateURL = "/api/todos/" + clickedid;
+//   var isdone= !(todo.data('completed'));
+//   var updatedata = {completed: isdone}
+//   $.ajax({
+//       method:'PUT',
+//       url:updateURL,
+//       data:updatedata
+//   })
+//   .then(function(data){
+//       console.log(data)
+//       todo.toggleClass("done");
+//       todo.data('completed', isdone)
+//   })
+//   .catch(function(err){
+//       console.log(err)
+//   })
+// } 
+
+//   // (function(data){
 //       console.log(data);
 //       todo.remove();
 //   })
@@ -90,4 +123,4 @@ $.getJSON("/api/users/posts")
 //     removetodo($(this).parent());
 //   })
 
-});
+// });
