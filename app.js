@@ -28,7 +28,9 @@ app.use(bodyparser.json());
 // app.use('/api/one',one);
 app.use('/api/users',userroutes);
 var User = require('./models/user');
-const mongoURI = 'mongodb://localhost/upload';
+// const mongoURI = 'mongodb://localhost/upload';
+const mongoURI = 'mongodb+srv://narendraiiitl:narendraiiitl@upload-y1od8.mongodb.net/test?retryWrites=true&w=majority';
+// mongodb+srv://narendraiiitl:<password>@upload-y1od8.mongodb.net/test?retryWrites=true&w=majority
 const conn = mongoose.createConnection(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 
