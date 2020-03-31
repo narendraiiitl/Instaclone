@@ -31,18 +31,7 @@ var User = require('./models/user');
 const mongoURI = 'mongodb://localhost/upload';
 const conn = mongoose.createConnection(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-/////////////////// using less///////////////////
 
-var lessMiddleware = require('less-middleware');
-
-// app.configure(function(){
-//   //other configuration here...  
-// app.use(lessMiddleware({
-//   src      : `${__dirname}/public`,
-//   compress : true
-// }));
-
-/////////////////// using less///////////////////
 
 
 /////////////////////node mailer//////////////////
@@ -134,6 +123,10 @@ conn.once('open', () => {
 ///////////////get request////////////////////
 app.get("/otp", function (req, res) {
   res.render("otp");
+});
+ 
+app.get("/covid",function(req,res){
+  res.render("covid")
 });
 
 app.get("/login", function (req, res) {

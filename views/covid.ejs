@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/covid.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <script src="/js/covid.js"></script>
+  <link rel="stylesheet" type="text/css" href="/dist/semantic.min.css">
+  <script src="/dist/semantic.min.js"></script>
+</head>
+
+<body>
+  <nav>
+    <div class="ui inverted segment">
+      <div class="ui secondary pointing inverted menu" id="menu">
+        <div class="item">
+          <img class="ui mini image" src="/assets/one.svg">&nbsp;&nbsp;Timepass
+        </div>
+        <a class="item" href="/">
+          Home
+        </a>
+        <a class="item " href="/upload">
+          Upload
+        </a>
+        <a class="item active"  href="/covid">
+          Covid-19 Updates
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="dial">
+    The Helpline Number for corona-virus : +91-11-23978046 or 1075
+  </div>
+
+
+  <div class="ui segment" style="margin-top: 0; padding: 0;" id="top">
+    <div class="ui placeholder segment" id="info" style="margin-bottom: 0;">
+      <div class="ui two column stackable center aligned grid" >
+        <div class="ui vertical divider" >
+          <i class="arrow huge circle right icon" >
+        </i></div>
+        <div class="middle aligned row">
+          <div class="column">
+            <div class="ui icon header" style="color: white;">
+              <i class="search icon"></i>
+              Find Country
+            </div>
+            <div class="field">
+              <div class="ui search">
+                <div class="ui icon input">
+                  <input class="prompt" id="country" type="text" placeholder="Search countries...">
+                  <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="ui icon header" id="usrcountry" style="color: white;">
+              <i class="world icon"></i>
+              Add New Country
+            </div>
+            <div class="container">
+            <button class="blue ui fluid button" id="Confirmed" style="margin-bottom: 1rem;">confirmed</button>
+            <button class="positive fluid ui button" id="Recovered" style="margin-bottom: 1rem;">Recovered</button>
+            <button class="negative fluid ui button" id="Death">Death</button>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="photo">
+      <div class="layer">
+        <div class="pm">
+        </div>
+      </div>
+      <div class="three">
+        <a>
+          <button type="button">Click Here for more details</button>
+        </a>
+      </div>
+    </div>
+    <div class="ui tablet stackable fluid steps">
+      <div class="completed step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Janta Curfew</div>
+          <div class="description">22March, 2020
+          </div>
+        </div>
+      </div>
+      <div class="completed step">
+        <i class="payment icon"></i>
+        <div class="content">
+          <div class="title">Lockdown</div>
+          <div class="description">3 Weeks</div>
+        </div>
+      </div>
+      <div class="disabled step">
+        <i class="info circle icon"></i>
+        <div class="content">
+          <div class="title">Next??</div>
+          <div class="description">End of epedemic</div>
+        </div>
+      </div>
+    </div>
+    <div class="dial" id="fight">
+      <span>
+        <img src="/assets/lhand.jpg"> #IndiaFightsCorona <img src="/assets/rhand.jpg">
+      </span>
+    </div>
+
+
+
+
+<!-- 
+
+    <div class="advi1">
+      <div style="color: black;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+        <h3 style="text-align:center;">Parallax Demo</h3>
+        <p>Parallax scrolling is a web site trend where the background content
+          is moved at a different speed than the foreground content while
+          scrolling. Nascetur per nec posuere turpis, lectus nec libero turpis
+          nunc at, sed posuere mollis ullamcorper libero ante lectus, blandit
+          pellentesque a, magna turpis est sapien duis blandit dignissim. Viverra
+          interdum mi magna mi, morbi sociis. Condimentum dui ipsum consequat
+          morbi, curabitur aliquam pede, nullam vitae eu placerat eget et
+          vehicula. Varius quisque non molestie dolor, nunc nisl dapibus
+          vestibulum at, sodales tincidunt mauris ullamcorper, dapibus pulvinar,
+          in in neque risus odio. Accumsan fringilla vulputate at quibusdam sociis
+          eleifend, aenean maecenas vulputate, non id vehicula lorem mattis,
+          ratione interdum sociis ornare. Suscipit proin magna cras vel, non sit
+          platea sit, maecenas ante augue etiam maecenas, porta porttitor placerat
+          leo.</p>
+      </div>
+
+
+      <div class="ptwo">
+        <div class="caption">
+          <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">LESS HEIGHT</span>
+        </div>
+      </div>
+      <div>
+        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+          <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
+        </div>
+      </div>
+
+      <div class="pthree">
+        <div class="caption">
+          <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">third image</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: justify;">
+          <p>Scroll up and down to really get the feeling of how Parallax Scrolling works.</p>
+        </div>
+      </div>
+
+
+      <div class="pone">
+      </div>
+      <div class="caption">
+        <span class="border">
+          Scroll Down
+        </span>
+      </div>
+
+
+ -->
+
+    </div>
+   
+  </div>
+  <!-- <div class="social">
+      <div class="vol">
+        <img src="https://www.mygov.in/sites/all/themes/mygov/images/covid/register_volunteer.jpg">
+        <span>Register as a Covid-19 Volunteer</span>
+      </div>
+     
+    </div> -->
+
+
+  <section>
+
+  </section>
+  <footer>
+    <div class="cover">
+      <div class="one1">
+        <ul>
+          <li><b>
+              <span></span>About</b></li>
+          <li>Home
+
+          </li>
+          <li>About Us</li>
+          <li>SHare Happyness</li>
+          <li>Product Comparison</li>
+
+        </ul>
+      </div>
+      <div class="one1">
+        <ul>
+          <li><b>
+              <span></span> Contact Us
+            </b></li>
+          <li> Skype: NULL
+          </li>
+          <li> Phone: +91 000000000</li>
+          <li> Cordinator </li>
+          <li>Noone: +91 00000005</li>
+
+
+        </ul>
+      </div>
+      <div class="one1">
+        <ul>
+          <li><b>
+              <span></span>Latest from our blog
+            </b></li>
+          <li> Webcam Business Idea in UK?
+          </li>
+          <li> Infographic: USA the BornLand</li>
+          <li> Online Stock Business</li>
+          <li>Access Websites</li>
+
+        </ul>
+      </div>
+      <div class="one1">
+        <ul>
+          <li><b>
+              <span></span>Located at</b></li>
+          <li> Room No.109,
+          </li>
+          <li> Chak Gajeria, Ahmamau</li>
+          <li>Lucknow</li>
+          <li>Phone: +91 0000005</li>
+
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

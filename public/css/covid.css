@@ -1,0 +1,215 @@
+a{
+    text-decoration: none;
+}
+.dial{
+    width:100%;
+    font-size: 20px;
+    /* display: flex; */
+    background: linear-gradient(to right,#ff105f,#ffad06);
+    text-align: center ;
+    border-radius: 2px;
+    color: white;
+    padding: 5px;
+}
+#info{
+    /* background-image: url('../assets/virus.jpg'); */
+    /* background-attachment: fixed;
+    background-size: cover; */
+    background: transparent;
+}
+#fight{ 
+    background: linear-gradient(to right,#ffad06,#ff105f);
+}
+#fight span{
+    color: white;
+    font-size: 40px;
+}
+#top{
+    width: 100%;
+    z-index: 10;
+    background-image: url('../assets/virus.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+.photo{
+    width: 100%;
+    height: 70vh;
+    z-index: 10;
+    /* background-image: url('../assets/virus.jpg'); */
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+.social{
+    width: 100%;
+    height: 85vh;
+    display: flex;
+    background-image: url('../assets/social.svg');
+
+}
+.vol{
+    /* width: 20vw; */
+    margin: 4vh  1vw;
+    
+    /* height:16vw ; */
+    border-radius: 4px;
+    /* border: 2px solid black ; */
+    /* background-image: url('https://www.mygov.in/sites/all/themes/mygov/images/covid/register_volunteer.jpg'); */
+    background-size: cover;
+}
+.vol span{
+    display: block;
+    width: 100%;
+    background-color: #073477;
+    color: white;
+    font-size: 20px;
+    padding: 5px 0;
+    text-align: center;
+
+}
+
+.layer{
+    height:55vh;
+    width: 50%;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 6px;
+    z-index: 2;
+    /* float:right; */
+    margin:auto;
+    border-color: transparent transparent rgba(0, 0, 0, 0.9) ;
+    outline: none;
+    padding-top: 2vh;
+    box-shadow: 7px 6px 23px -6px rgba(0,0,0,0.43);
+    
+}
+.pm{
+    height: 85%;
+    width: 65% ;
+    margin: 0 auto;
+    background-image: url('../assets/fund.svg');
+    background-size: cover;
+    z-index: 4;
+    border-radius: 4px;
+
+}
+.three{
+    width:40%;
+    display: flex;
+    margin: 2vh auto;
+    justify-content: center;
+}
+
+.three a button{
+    border:black;
+    font-size: 3vh;
+    border-radius: 3px;
+    color: white;
+    background-blend-mode: soft-light;
+    padding: 5px;
+    border-style: solid ;
+    border-width: 2px;
+    background-color: rgba(0,0,0,0.7);
+    /* background: transparent; */
+}
+.three a button:hover{
+    color: #cde1f3;
+    background: #010c16;
+    box-shadow: 0 0 5px #000203, 0 0 10px #00080f, 0 0 20px #010a13 ;
+    border-style: none;
+}
+
+
+.cover{
+    width:100%;
+    display: flex;
+}
+.one1{
+    width:25vw;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 5%;
+   
+    /* margin-bottom: 20%; */
+}
+ul{
+    list-style: none;
+}
+.one1 li b{
+
+      font-weight: 600;
+      font-size: 1.5em;
+      
+}
+.one1 li{
+    margin-left: 15%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: #fff;
+    font-weight: 50;
+width:100% ;
+padding: 8px;
+border-bottom: 1px solid rgba(255,255,255,0.05);;
+}
+footer{
+    background-color: #2e2e2e;
+    height:300px;
+}
+
+
+
+
+
+
+
+
+
+.pone{
+    background-image: url("../assets/hw.jpg");
+    min-height: 100%;
+    background-attachment: fixed;
+    opacity: 0.65;
+    width: 100%;
+    background-position: center;
+    position: relative;
+    background-size: cover;
+
+}
+.caption{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    opacity: 1;
+    width: 100%;
+    text-align: center;
+    color: #000;
+    z-index: 2;
+}
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+  }
+  .ptwo{
+    background-image: url("../assets/logos.png");
+    min-height: 400px;
+    background-attachment: fixed;
+    opacity: 0.65;
+    width: 100%;
+    background-position: center;
+    position: relative;
+    background-size: cover;
+
+  }
+  .pthree{
+    background-image: url("../assets/ontonic-2AFnh3CAaB0-unsplash.jpg");
+    min-height: 400px;
+    background-attachment: fixed;
+    opacity: 0.65;
+    width: 100%;
+    background-position: center;
+    position: relative;
+    background-size: cover;
+
+  }
